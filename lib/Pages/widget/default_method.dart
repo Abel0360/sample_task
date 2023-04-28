@@ -6,28 +6,51 @@ class Default extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.all(10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            'Default Method',
-            style: TextStyle(fontSize: 14),
-          ),
-          Row(
-            children: [
-              Text('Online Payment',
-                  style: TextStyle(fontSize: 12, color: Colors.grey)),
-              Icon(
-                Icons.arrow_forward_ios_rounded,
-                color: Colors.grey,
-                size: 12,
-              )
-            ],
-          )
-        ],
-      ),
+    return  Column(
+      children: [
+        DefaultPaymentProfile(onTap: () {},
+          text: 'kjdshsu',subText: 'gfghvh',),DefaultPaymentProfile(onTap: () {},
+          text: 'kjdshsu',subText: 'gfghvh',),DefaultPaymentProfile(onTap: () {},
+          text: 'kjdshsu',subText: 'gfghvh',),
+      ],
     );
   }
+}
+//Refactored section for Default Method and Payment Profile
+class DefaultPaymentProfile extends StatelessWidget {
+  const DefaultPaymentProfile({
+    required this.text,
+    required this.onTap,
+    required this.subText,
+    super.key,
+  });
+
+  final String text;
+  final String subText;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+      Text(
+      text,
+      style: Theme.of(context).textTheme.titleMedium,
+    ),
+    GestureDetector(
+    onTap: onTap,
+    child: Row(
+    children: [
+    Text(
+    subText,
+    style: Theme.of(context).textTheme.bodyLarge,
+    ),
+    const Icon(Icons.arrow_forward_ios_sharp, size: 20),
+    ],
+    ),
+    ),
+    ],
+    );
+    }
 }
