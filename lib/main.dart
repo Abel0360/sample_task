@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sample_task/provider/progress_provider.dart';
 
 import 'Pages/payment_screen.dart';
 
 void main(){
 
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider<ProgressProvider>(
+      child: MyApp(),
+      create: (_) => ProgressProvider()
+  ));
 }
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
+  MyApp({super.key});
+
+
   @override
   Widget build(BuildContext context) {
    return MaterialApp(
